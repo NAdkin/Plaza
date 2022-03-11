@@ -1,31 +1,21 @@
-from flask import Flask, redirect, url_for
-from pymongo import MongoClient
-from flask_cors import CORS, cross_origin
-import json
-import api
-
-
-app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
-
-
-mongoClient = MongoClient('mongodb://127.0.0.1:27017')
-db = mongoClient.get_database('names_db')
-names_col = db.get_collection('names_col')
-
-@app.route('/addname/<name>/')
-def addname(name):
-    names_col.insert_one({"name": name.lower()})
-    return redirect(url_for('getnames'))
-
-@app.route('/getnames/')
-def getnames():
-    names_json = []
-    if names_col.find({}):
-        for name in names_col.find({}).sort("name"):
-            names_json.append({"name": name['name'], "id": str(name['_id'])})
-    return json.dumps(names_json)
-
-if __name__ == "__main__":
-    app.run(debug=True)
+import pymongo  # package for working with MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["customersdb"]
+customers = db["customers"]
+customers_list = [
+  { "name": "Amy", "address": "Apple st 652"},
+  { "name": "Hannah", "address": "Mountain 21"},
+  { "name": "Michael", "address": "Valley 345"},
+  { "name": "Sandy", "address": "Ocean blvd 2"},
+  { "name": "Betty", "address": "Green Grass 1"},
+  { "name": "Richard", "address": "Sky st 331"},
+  { "name": "Susan", "address": "One way 98"},
+  { "name": "Vicky", "address": "Yellow Garden 2"},
+  { "name": "Ben", "address": "Park Lane 38"},
+  { "name": "William", "address": "Central st 954"},
+  { "name": "Chuck", "address": "Main Road 989"},
+  { "name": "Viola", "address": "Sideway 1633"}
+]
+x = customers.insert_many(customers_list)
+# print list of the _id values of the inserted documents:
+print(x.inserted_ids)
