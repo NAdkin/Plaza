@@ -1,0 +1,30 @@
+{
+    "data" : [
+        {
+            "title" : "Dungeons & Dragons",
+            "price" : "Free",
+            "description" : "Fifth edition dungeon crawling with beer and coffee.",
+            "datetime" : "2022-09-09T22:18:26.625Z",
+            "duration" : "5 hours"
+        },
+        {
+            "title" : "Risk",
+            "price" : "Free",
+            "description" : "War and Stratagem. Come to lose.",
+            "datetime" : "2022-07-09T22:18:26.625Z",
+            "duration" : "All day. Probably"
+        },
+        {
+            "title" : "Book Club",
+            "price" : "$30",
+            "description" : "Book of the month is Song of Achilles. Cover fee includes dinner and wine.",
+            "datetime" : "2022-08-09T22:18:26.625Z",
+            "duration" : "3 hours"
+        }
+
+
+
+
+    ]
+
+}

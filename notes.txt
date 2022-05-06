@@ -1,3 +1,32 @@
 npx create-react-app my-app
 cd my-app
 npm start
+
+
+
+function hello(){
+    alert("hello");
+  }
+
+
+ var response2 = fetch('http://127.0.0.1:5000/api_test')
+  .then(response => response.json())
+  .then(data =>  data.Test);
+
+  function Api_call(){
+    fetch('http://127.0.0.1:5000/api_test')
+    .then(response => response.json())
+    .then(data => setDetail(data.Test));
+  
+  }
+
+
+   <button onClick={hello}>Press me</button>
+        <button onClick={Api_call}>Call</button>
+        
+        <h1>{response2}</h1>
+        
+        <p>
+          {detail}
+
+        </p>

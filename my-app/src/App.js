@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+//import React from 'react';
+//import { useState , React} from 'react'
 
-function App() {
+function EventGen({ event }) {
+
+  return(<div className="event-card">
+            <h1>{event.title}</h1>
+            <p>{event.price}</p>
+            <p>{event.description}</p>
+            <p>{event.datetime}</p>
+            <p>{event.duration}</p>
+
+
+          </div>)
+
+}
+
+
+function App({ events }) {
+ // const [detail, setDetail] = useState()
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. Noellesss
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {events.map(event => (
+      
+        <div className="event-card">
+            <h1>{event.title}</h1>
+            <p>{event.price}</p>
+            <p>{event.description}</p>
+            <p>{event.datetime}</p>
+            <p>{event.duration}</p>
+
+
+          </div>
+        
+        
+        
+        ))}
+      
+
     </div>
   );
 }
