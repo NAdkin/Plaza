@@ -2,14 +2,27 @@ import './App.css';
 //import React from 'react';
 //import { useState , React} from 'react'
 
-function EventGen({ event }) {
+import local_events from './events.json';
+
+//const events = EVENTS[0];
+
+const plazaevents = local_events;
+
+function GetEvents(){
+  fetch('./events.json')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+}
+
+function EventGen({ plazaevent }) {
 
   return(<div className="event-card">
-            <h1>{event.title}</h1>
-            <p>{event.price}</p>
-            <p>{event.description}</p>
-            <p>{event.datetime}</p>
-            <p>{event.duration}</p>
+            <h1>{plazaevent.title}</h1>
+            <p>{plazaevent.price}</p>
+            <p>{plazaevent.description}</p>
+            <p>{plazaevent.datetime}</p>
+            <p>{plazaevent.duration}</p>
 
 
           </div>)
@@ -17,19 +30,25 @@ function EventGen({ event }) {
 }
 
 
-function App({ events }) {
+function App({ plazaevents }) {
  // const [detail, setDetail] = useState()
 
+var plazaevent = plazaevents[0];
+
   return (
+
+    
     <div className="App">
-      {events.map(event => (
+        <p>Plaza</p>
+
+      {events.map(plazaevent => (
       
         <div className="event-card">
-            <h1>{event.title}</h1>
-            <p>{event.price}</p>
-            <p>{event.description}</p>
-            <p>{event.datetime}</p>
-            <p>{event.duration}</p>
+            <h1>{plazaevent.title}</h1>
+            <p>{plazaevent.price}</p>
+            <p>{plazaevent.description}</p>
+            <p>{plazaevent.datetime}</p>
+            <p>{plazaevent.duration}</p>
 
 
           </div>

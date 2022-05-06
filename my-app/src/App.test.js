@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { data as EVENTS } from '../fixtures/events.json'
+import { data as EVENTS } from './events.json'
 
 
 it('should show the title, price, description, datetime, duration, of an event when rendered', () => {
