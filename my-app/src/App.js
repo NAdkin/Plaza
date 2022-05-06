@@ -2,11 +2,11 @@ import './App.css';
 //import React from 'react';
 //import { useState , React} from 'react'
 
-import local_events from './events.json';
+import plazaevents from './events.json';
 
 //const events = EVENTS[0];
 
-const plazaevents = local_events;
+// const plazaevents = local_events;
 
 function GetEvents(){
   fetch('./events.json')
@@ -30,18 +30,19 @@ function EventGen({ plazaevent }) {
 }
 
 
-function App({ plazaevents }) {
+function App() {
  // const [detail, setDetail] = useState()
 
-var plazaevent = plazaevents[0];
+//var plazaevent = plazaevents[0];
 
   return (
 
     
     <div className="App">
         <p>Plaza</p>
+        <h1>Hello</h1>
 
-      {events.map(plazaevent => (
+      {plazaevents.data.map(plazaevent => (
       
         <div className="event-card">
             <h1>{plazaevent.title}</h1>
@@ -49,15 +50,8 @@ var plazaevent = plazaevents[0];
             <p>{plazaevent.description}</p>
             <p>{plazaevent.datetime}</p>
             <p>{plazaevent.duration}</p>
-
-
           </div>
-        
-        
-        
         ))}
-      
-
     </div>
   );
 }
